@@ -159,13 +159,7 @@
     const display = document.querySelector('#display')
 
     function calc(val) {
-
-        if (val == '%') {
-            val = display.value / 100;
-
-        } else {
-            display.value += val
-        }
+display.value+=val
     }
 
     function clean() {
