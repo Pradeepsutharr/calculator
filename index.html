@@ -141,8 +141,8 @@
             </div>
 
             <div class="row">
-                <input type="button" value="0" onclick="calc(0)">
                 <input type="button" value="00" onclick="calc('00')">
+                <input type="button" value="0" onclick="calc(0)">
                 <input type="button" value="&#x2022;" onclick="calc('.')">
                 <input type="button" value="=" id="equal" onclick="result()">
             </div>
@@ -159,7 +159,13 @@
     const display = document.querySelector('#display')
 
     function calc(val) {
-        display.value += val
+
+        if (val == '%') {
+            val = display.value / 100;
+
+        } else {
+            display.value += val
+        }
     }
 
     function clean() {
@@ -173,6 +179,8 @@
     function backspace() {
         display.value = display.value.substr(0, display.value.length - 1);
     }
+
+
 
     // const nums = document.querySelectorAll('.num-pad .row input')
     // nums.forEach((num => {
